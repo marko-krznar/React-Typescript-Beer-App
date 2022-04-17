@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import BeerSingle from "./components/BeerSingle";
 import { Ibeer } from "./models/Ibeer";
 
 interface IState {
@@ -47,19 +48,7 @@ function App() {
         ? "Loading"
         : beers.length > 0 &&
           beers.map((beer) => {
-            return (
-              <div key={beer.id}>
-                <div className="img--frame">
-                  <img
-                    style={{ maxWidth: "120px" }}
-                    src={beer.image_url}
-                    alt={beer.name}
-                  />
-                </div>
-                <h3>{beer.name}</h3>
-                <p>{beer.description}</p>
-              </div>
-            );
+            return <BeerSingle key={beer.id} beer={beer} />;
           })}
       {beers.length === 0 && errorMsg}
     </div>
