@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import BeerSingle from "./components/BeerSingle";
 import { Ibeer } from "./models/Ibeer";
+import { BeersService } from "./services/BeersService";
 
 interface IState {
   loading: boolean;
@@ -21,8 +21,7 @@ function App() {
       ...state,
       loading: true,
     });
-    axios
-      .get("https://api.punkapi.com/v2/beers")
+    BeersService.getAllBeers()
       .then((res) => {
         setState({
           ...state,
