@@ -39,18 +39,18 @@ function Beers() {
   }, []);
 
   const { loading, beers, errorMsg } = state;
-  return <h2>Beer List</h2>;
-  {
-    loading === true
-      ? "Loading"
-      : beers.length > 0 &&
-        beers.map((beer) => {
-          return <BeerSingle key={beer.id} beer={beer} />;
-        });
-  }
-  {
-    beers.length === 0 && errorMsg;
-  }
+  return (
+    <>
+      <h2>Beer List</h2>
+      {loading === true
+        ? "Loading"
+        : beers.length > 0 &&
+          beers.map((beer) => {
+            return <BeerSingle key={beer.id} beer={beer} />;
+          })}
+      {beers.length === 0 && errorMsg}
+    </>
+  );
 }
 
 export default Beers;
