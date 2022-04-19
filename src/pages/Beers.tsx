@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BeerSingle from "../components/BeerSingle";
-import Navigation from "../components/Navigation";
 import { Ibeer } from "../models/Ibeer";
 import { BeersService } from "../services/BeersService";
 
