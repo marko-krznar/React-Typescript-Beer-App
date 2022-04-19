@@ -10,4 +10,8 @@ export class BeersService {
     let dataURL: string = `${this.serverURL}/beers/${beerId}`;
     return axios.get(dataURL);
   }
+  public static getSearchedBeer(beerName: string) {
+    let dataURL: string = `${this.serverURL}/beers?beer_name=${beerName}`;
+    return axios.get(dataURL);
+  }
 }

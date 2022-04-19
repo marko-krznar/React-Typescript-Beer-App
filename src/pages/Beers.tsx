@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BeerSingle from "../components/BeerSingle";
+import Search from "../components/Search";
 import { Ibeer } from "../models/Ibeer";
 import { BeersService } from "../services/BeersService";
 
@@ -42,6 +43,7 @@ function Beers() {
   return (
     <>
       <h2>Beer List</h2>
+      <Search />
       {loading === true
         ? "Loading"
         : beers.length > 0 &&
