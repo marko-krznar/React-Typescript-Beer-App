@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ISingleBeer } from "../models/ISingleBeer";
 import { BeersService } from "../services/BeersService";
 
@@ -40,16 +40,21 @@ function SingleBeer() {
 
   let { singleBeer } = beer;
 
-  // console.log(singleBeer[0]?.name);
-
   return (
     <div>
-      <h2>test</h2>
-      {Object.keys(singleBeer).length > 0 && (
+      {singleBeer != null && Array.isArray(singleBeer) && (
         <>
-          <h2>{singleBeer.name}</h2>
+          <img
+            style={{ maxWidth: "100px" }}
+            src={singleBeer[0].image_url}
+            alt={singleBeer[0].name}
+          />
+          <h2>{singleBeer[0].name}</h2>
+          <p>{singleBeer[0].tagline}</p>
+          <p>{singleBeer[0].description}</p>
         </>
       )}
+      <Link to={"/beers"}>Back to Beers</Link>
     </div>
   );
 }
