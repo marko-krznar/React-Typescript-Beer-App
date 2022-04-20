@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BeerSingle from "../components/BeerSingle";
-import Search from "../components/Search";
 import { Ibeer } from "../models/Ibeer";
 import { BeersService } from "../services/BeersService";
 
@@ -16,6 +15,9 @@ function Beers() {
     beers: [] as Ibeer[],
     errorMsg: "",
   });
+  const [term, setTerm] = useState("");
+
+  const { loading, beers, errorMsg } = state;
 
   useEffect(() => {
     setState({
@@ -39,15 +41,26 @@ function Beers() {
       });
   }, []);
 
-  const { loading, beers, errorMsg } = state;
+  const searchedBeer = beers.filter((beer) => {
+    if (beer.name.toLowerCase().includes(term)) {
+      return beer;
+    }
+  });
+
   return (
     <>
       <h2>Beer List</h2>
-      <Search />
-      {loading === true
-        ? "Loading"
-        : beers.length > 0 &&
-          beers.map((beer) => {
+      <h3>Filter by name</h3>
+      <input
+        required
+        type="text"
+        value={term}
+        onChange={(e) => setTerm(e.target.value)}
+      />
+      {loading === true && "Loading"}
+      {searchedBeer.length === 0 && loading === false
+        ? `Beer ${term} can't be find`
+        : searchedBeer.map((beer) => {
             return <BeerSingle key={beer.id} beer={beer} />;
           })}
       {beers.length === 0 && errorMsg}
