@@ -41,7 +41,7 @@ function SingleBeer() {
   let { singleBeer } = beer;
 
   return (
-    <div>
+    <div className="block--container">
       {singleBeer != null && Array.isArray(singleBeer) && (
         <>
           <img

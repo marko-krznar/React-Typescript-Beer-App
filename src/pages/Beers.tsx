@@ -48,7 +48,7 @@ function Beers() {
   });
 
   return (
-    <>
+    <div className="block--container">
       <h2>Beer List</h2>
       <h3>Filter by name</h3>
       <input
@@ -64,7 +64,7 @@ function Beers() {
             return <BeerSingle key={beer.id} beer={beer} />;
           })}
       {beers.length === 0 && errorMsg}
-    </>
+    </div>
   );
 }
 

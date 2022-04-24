@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div>
+    <div className="block--container">
       <h2>Beer App</h2>
       <p>Features</p>
       <ul>

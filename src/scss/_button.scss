@@ -1,0 +1,44 @@
+button,
+.btn {
+  // background: blue;
+  box-shadow: none;
+  // border: 1px solid #424242;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  text-align: center;
+  display: inline-block;
+  transition: 0.2s linear;
+  &:hover {
+    cursor: pointer;
+    // background: #fff;
+    // color: #424242;
+    transition: 0.2s linear;
+    // i,
+    // span {
+    //   color: #424242;
+    // }
+  }
+  &.is-disabled {
+    pointer-events: none;
+    transition: 0.2s linear;
+    opacity: 0.4;
+  }
+  &.btn--back {
+    padding: 0.75em 2em;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    i {
+      margin-right: 0.425em;
+    }
+  }
+}
+@media (max-width: 576px) {
+  button,
+  .btn {
+    width: 100%;
+  }
+}

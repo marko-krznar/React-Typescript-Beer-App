@@ -1,0 +1,11 @@
+.nav {
+  padding: 2rem;
+}
+.block--links a {
+  padding-right: 1rem;
+  text-decoration: unset;
+  text-transform: uppercase;
+  &:last-child {
+    padding-right: 0;
+  }
+}
