@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -9,6 +10,9 @@ function Home() {
         <li>Display beer list</li>
         <li>Display single beer</li>
       </ul>
+      <Link to={"beers"} className="btn btn--bcg-middle">
+        See beers
+      </Link>
     </div>
   );
 }
