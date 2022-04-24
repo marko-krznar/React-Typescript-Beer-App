@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import BeerSingle from "../components/BeerSingle";
-import { Ibeer } from "../models/Ibeer";
-import { BeersService } from "../services/BeersService";
+import BeerSingle from "../../components/BeerSingle/BeerSingle";
+import { Ibeer } from "../../models/Ibeer";
+import { BeersService } from "../../services/BeersService";
+import "./style.scss";
 
 interface IState {
   loading: boolean;
@@ -57,13 +58,15 @@ function Beers() {
         value={term}
         onChange={(e) => setTerm(e.target.value)}
       />
-      {loading === true && "Loading"}
-      {searchedBeer.length === 0 && loading === false
-        ? `Beer ${term} can't be find`
-        : searchedBeer.map((beer) => {
-            return <BeerSingle key={beer.id} beer={beer} />;
-          })}
-      {beers.length === 0 && errorMsg}
+      <div className="d-flex flex-wrap block--prod-list">
+        {loading === true && "Loading"}
+        {searchedBeer.length === 0 && loading === false
+          ? `Beer ${term} can't be find`
+          : searchedBeer.map((beer) => {
+              return <BeerSingle key={beer.id} beer={beer} />;
+            })}
+        {beers.length === 0 && errorMsg}
+      </div>
     </div>
   );
 }

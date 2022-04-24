@@ -1,0 +1,23 @@
+@import "../../scss/colors";
+
+.single-item {
+  flex: 0 0 30%;
+  border: 1px solid $secundary;
+  background-color: $bcg-light;
+  box-shadow: 0 0.1rem 0.1rem $secundary;
+  margin: 1rem;
+  border-radius: 2em 0 2rem 0;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem 1rem;
+  img {
+    max-height: 200px;
+  }
+  h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1em;
+    line-height: 1.2;
+  }
+}

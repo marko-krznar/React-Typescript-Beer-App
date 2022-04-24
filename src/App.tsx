@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import Beers from "./pages/Beers";
+import Beers from "./pages/Beers/Beers";
 import Home from "./pages/Home";
 import SingleBeer from "./pages/SingleBeer";
 
