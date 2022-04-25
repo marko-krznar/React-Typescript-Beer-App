@@ -24,7 +24,7 @@ export default function BeerSingle({ beer }: any) {
         <img src={beer.image_url} alt={beer.name} />
       </div>
       <h3>{beer.name}</h3>
-      <p>{beer.description}</p>
+      <p>{beer.description.split(/\s+/).slice(0, 16).join(" ") + "..."}</p>
       {/* <button onClick={(e) => handleFavourites(e, beer)}>
         Add to favourites
       </button> */}
