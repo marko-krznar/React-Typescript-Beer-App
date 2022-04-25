@@ -1,3 +1,5 @@
+@import "./colors";
+
 $alignments: (
   between: space-between,
   end: flex-end,
@@ -19,6 +21,10 @@ $alignments: (
 
 html * {
   box-sizing: border-box;
+}
+body {
+  background-color: $bcg-dark;
+  color: #fff;
 }
 
 @each $key, $value in $alignments {
