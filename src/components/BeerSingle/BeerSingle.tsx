@@ -20,6 +20,7 @@ export default function BeerSingle({ beer }: any) {
 
   return (
     <div className="single-item">
+      <span className="block--abv">{beer.abv}%</span>
       <div className="img--frame">
         <img src={beer.image_url} alt={beer.name} />
       </div>

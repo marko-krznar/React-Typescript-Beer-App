@@ -49,8 +49,8 @@ function Beers() {
   });
 
   return (
-    <div className="block--container">
-      <h2>Beer List</h2>
+    <div className="block--container pg-beers">
+      <h2>Legendary Beer Brewerly</h2>
       <h3>Filter by name</h3>
       <input
         required
