@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import beerDay from "../../images/beer-day.webp";
+import beerDay from "../../images/beer-day-n.webp";
 import "./style.scss";
 
 function Home() {
@@ -12,6 +12,7 @@ function Home() {
         <ul>
           <li>Display beer list</li>
           <li>Display single beer</li>
+          <li>Filter by beer name</li>
         </ul>
         <Link to={"beers"} className="btn btn--bcg-middle">
           See beers
