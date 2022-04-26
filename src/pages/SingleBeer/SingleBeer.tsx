@@ -45,52 +45,44 @@ function SingleBeer() {
     <div className="block--container pg--single-product">
       {singleBeer != null && Array.isArray(singleBeer) && (
         <>
-          <div className="block--headline">
-            <Link className="btn btn--back" to={"/beers"}>
-              Back to Beers
-            </Link>
-            <h2>
-              {singleBeer[0].name}
-              <span>{singleBeer[0].tagline}</span>
-            </h2>
-            <p>{singleBeer[0].description}</p>
-          </div>
-          <div className="block--image-frame">
-            <img src={singleBeer[0].image_url} alt={singleBeer[0].name} />
-          </div>
-          <div className="block--specs d-flex">
-            <div>
-              <img src="" alt="" />
-              <h3>Ingredients</h3>
-              <ul>
-                <li>{singleBeer[0].ingredients.yeast}</li>
-                {singleBeer[0].ingredients.malt.map(
-                  (malt: any, index: number) => {
-                    return <li key={index}>{malt.name}</li>;
-                  }
-                )}
-                {singleBeer[0].ingredients.hops.map(
-                  (hops: any, index: number) => {
-                    return <li key={index}>{hops.name}</li>;
-                  }
-                )}
-              </ul>
+          <div className="block--beer-info d-flex justify-content-center align-items-center">
+            <div className="block--image-frame">
+              <img src={singleBeer[0].image_url} alt={singleBeer[0].name} />
             </div>
-            <div>
-              <img src="" alt="" />
-              <h3>Food pairing</h3>
-              <ul>
-                {singleBeer[0].food_pairing.map(
-                  (food: string, index: number) => {
-                    return <li key={index}>{food}</li>;
-                  }
-                )}
-              </ul>
-            </div>
-            <div>
-              <img src="" alt="" />
-              <h3>Brewers tips</h3>
-              <p>{singleBeer[0].brewers_tips}</p>
+            <div className="block--info">
+              <div className="block--headline">
+                <h2>{singleBeer[0].name}</h2>
+                <span className="txt-tag">#{singleBeer[0].tagline}</span>
+                <p>{singleBeer[0].description}</p>
+              </div>
+              <div className="block--specs d-flex">
+                <div>
+                  <img src="" alt="" />
+                  <h3>
+                    <i className="bi bi-hand-thumbs-up-fill"></i> Food pairing
+                  </h3>
+                  <ul>
+                    {singleBeer[0].food_pairing.map(
+                      (food: string, index: number) => {
+                        return <li key={index}>{food}</li>;
+                      }
+                    )}
+                  </ul>
+                </div>
+                <div>
+                  <img src="" alt="" />
+                  <h3>
+                    <i className="bi bi-hand-index-fill"></i> Brewers tips
+                  </h3>
+                  <p>{singleBeer[0].brewers_tips}</p>
+                </div>
+              </div>
+              <div className="block--bcg-btn">
+                <Link className="tag--back" to={"/beers"}>
+                  <i className="bi bi-chevron-left"></i>
+                  <span>Back to Beers</span>
+                </Link>
+              </div>
             </div>
           </div>
         </>
