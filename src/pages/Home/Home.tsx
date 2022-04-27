@@ -14,7 +14,10 @@ function Home() {
           <li>Display single beer</li>
           <li>Filter by beer name</li>
         </ul>
-        <Link to={"beers"} className="btn btn--bcg-middle">
+        <Link
+          to={"/React-Typescript-Beer-App/beers"}
+          className="btn btn--bcg-middle"
+        >
           See beers
         </Link>
       </div>

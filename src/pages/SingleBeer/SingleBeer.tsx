@@ -76,7 +76,10 @@ function SingleBeer() {
                 </div>
               </div>
               <div className="block--bcg-btn">
-                <Link className="tag--back" to={"/beers"}>
+                <Link
+                  className="tag--back"
+                  to={"/React-Typescript-Beer-App/beers"}
+                >
                   <i className="bi bi-chevron-left"></i>
                   <span>Back to Beers</span>
                 </Link>

@@ -29,7 +29,7 @@ export default function BeerSingle({ beer }: any) {
       {/* <button onClick={(e) => handleFavourites(e, beer)}>
         Add to favourites
       </button> */}
-      <Link className="btn" to={`/beer/${beer.id}`}>
+      <Link className="btn" to={`/React-Typescript-Beer-App/beer/${beer.id}`}>
         See more
       </Link>
     </div>

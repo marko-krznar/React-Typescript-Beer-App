@@ -9,9 +9,12 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route path="/beers" element={<Beers />} />
-        <Route path="/beer/:id" element={<SingleBeer />} />
-        <Route path="/React-Typescript-Beer-App/" element={<Home />} />
+        <Route path="/React-Typescript-Beer-App/beers" element={<Beers />} />
+        <Route
+          path="/React-Typescript-Beer-App/beer/:id"
+          element={<SingleBeer />}
+        />
+        <Route path="/React-Typescript-Beer-App" element={<Home />} />
       </Routes>
     </>
   );
