@@ -43,3 +43,10 @@ a {
     color: $primary;
   }
 }
+
+@media (max-width: 576px) {
+  p,
+  li {
+    font-size: 0.875rem;
+  }
+}

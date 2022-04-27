@@ -55,7 +55,7 @@ function SingleBeer() {
                 <span className="txt-tag">#{singleBeer[0].tagline}</span>
                 <p>{singleBeer[0].description}</p>
               </div>
-              <div className="block--specs d-flex">
+              <div className="block--specs d-flex m--flex-direction-column">
                 <div>
                   <img src="" alt="" />
                   <h3>

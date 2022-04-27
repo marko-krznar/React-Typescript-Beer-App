@@ -87,3 +87,70 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .block--info {
+    padding: 4rem 2rem 4rem 8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .pg--single-product {
+    .block--beer-info {
+      position: relative;
+    }
+    .block--image-frame {
+      position: absolute;
+      top: -3rem;
+      right: -1.5rem;
+      img {
+        max-width: 100%;
+        max-height: 240px;
+      }
+    }
+    .block--info {
+      padding: 4rem;
+      margin-left: 0;
+    }
+    .block--bcg-btn .tag--back span {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pg--single-product .block--info {
+    padding: 4rem 2rem;
+  }
+  .pg--single-product .block--beer-info {
+    .block--headline {
+      padding-right: 4rem;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .pg--single-product {
+    .block--image-frame {
+      top: -4rem;
+      right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .block--info {
+      padding: 12rem 2rem 4rem;
+    }
+    .block--beer-info .block--headline {
+      padding-right: 0;
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+    .txt-tag {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

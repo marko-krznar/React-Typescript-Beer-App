@@ -12,3 +12,35 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .block--info {
+    padding: 4rem 2rem 4rem 6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .pg-home {
+    &.block--container {
+      flex-wrap: wrap;
+    }
+    > div {
+      flex: 1 1 100%;
+    }
+    .block--info {
+      margin-left: 0;
+      padding: 4rem;
+    }
+    .block--image {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.02;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pg-home .block--info h2 {
+    font-size: 2rem;
+  }
+}

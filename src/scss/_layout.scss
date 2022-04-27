@@ -39,3 +39,12 @@ body {
 .block--container {
   padding: 0 2rem;
 }
+
+@media (max-width: 576px) {
+  .m--flex-direction-column {
+    flex-direction: column;
+    > * {
+      flex: 1 1 100%;
+    }
+  }
+}

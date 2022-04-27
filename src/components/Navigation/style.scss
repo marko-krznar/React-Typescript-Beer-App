@@ -13,3 +13,12 @@
 .block-logo img {
   max-height: 80px;
 }
+
+@media (max-width: 576px) {
+  .block--container.nav {
+    padding: 2rem 1rem;
+    .block-logo {
+      margin-bottom: 1rem;
+    }
+  }
+}
