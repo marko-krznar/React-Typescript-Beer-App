@@ -10,7 +10,7 @@ export default function Navigation() {
         <img src={logo} alt="beer-logo" />
       </div>
       <div className="block--links">
-        <Link to={"/"}>Home</Link>
+        <Link to={"/React-Typescript-Beer-App/"}>Home</Link>
         <Link to={"/beers"}>Beers</Link>
       </div>
     </div>

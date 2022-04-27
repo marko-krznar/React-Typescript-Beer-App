@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/beers" element={<Beers />} />
         <Route path="/beer/:id" element={<SingleBeer />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/React-Typescript-Beer-App/" element={<Home />} />
       </Routes>
     </>
   );
