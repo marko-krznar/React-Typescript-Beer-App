@@ -57,7 +57,6 @@ function SingleBeer() {
               </div>
               <div className="block--specs d-flex m--flex-direction-column">
                 <div>
-                  <img src="" alt="" />
                   <h3>
                     <i className="bi bi-hand-thumbs-up-fill"></i> Food pairing
                   </h3>
