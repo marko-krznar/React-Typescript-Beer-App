@@ -26,9 +26,6 @@ export default function BeerSingle({ beer }: any) {
       </div>
       <h3>{beer.name}</h3>
       <p>{beer.description.split(/\s+/).slice(0, 16).join(" ") + "..."}</p>
-      {/* <button onClick={(e) => handleFavourites(e, beer)}>
-        Add to favourites
-      </button> */}
       <Link className="btn" to={`/React-Typescript-Beer-App/beer/${beer.id}`}>
         See more
       </Link>
