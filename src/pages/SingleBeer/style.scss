@@ -72,11 +72,16 @@
       margin-right: -10rem;
       transition: 0.2s linear;
     }
+    .bi-chevron-left::before {
+      margin-left: -0.5rem;
+      margin-right: 0.5rem;
+    }
     &:hover {
       color: #fff;
       span {
         margin-right: 0;
         padding-left: 1rem;
+        margin-left: -1rem;
         transition: 0.2s linear;
       }
     }
