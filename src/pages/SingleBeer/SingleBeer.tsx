@@ -69,7 +69,6 @@ function SingleBeer() {
                   </ul>
                 </div>
                 <div>
-                  <img src="" alt="" />
                   <h3>
                     <i className="bi bi-hand-index-fill"></i> Brewers tips
                   </h3>
