@@ -43,7 +43,6 @@ function Beers() {
       });
   }, []);
 
-  // Sad mi radi kao zajednički filteri i ispunjava se s oba, meni treba da se ispunjava jedan uvjet, a zatim drugi
   const filterBeer = beers.filter((beer) => {
     if (
       beer.name.toLowerCase().includes(term) &&
