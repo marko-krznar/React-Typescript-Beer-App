@@ -46,6 +46,9 @@ function Beers() {
   }, []);
 
   const filterBeer = beers.filter((beer) => {
+    if (favourites === true) {
+      return;
+    }
     if (
       beer.name.toLowerCase().includes(term) &&
       beer.abv <= parseFloat(alcoholContent)
@@ -62,10 +65,6 @@ function Beers() {
       setFavouritebeers([...favouritebeers, beer]);
     }
   };
-
-  useEffect(() => {
-    localStorage.setItem("favouriteBeers", JSON.stringify(favouritebeers));
-  }, [favouritebeers]);
 
   return (
     <div className="block--container pg-beers">
@@ -96,7 +95,7 @@ function Beers() {
             <span>100%</span>
           </div>
         </div>
-        {/* <div className="block--favourites">
+        <div className="block--favourites">
           <h3>Show only favourites</h3>
           <input
             type="checkbox"
@@ -105,9 +104,28 @@ function Beers() {
             value="favourites"
             onChange={() => setFavourites(!favourites)}
           ></input>
-        </div> */}
+        </div>
       </div>
-      <div className="d-flex flex-wrap block--prod-list">
+      <div className="d-flex flex-wrap block--prod-list block--favourites">
+        {favouritebeers.length >= 1 && favourites === true
+          ? favouritebeers.map((beer) => {
+              return (
+                <BeerSingle
+                  key={beer.id}
+                  beer={beer}
+                  handleFavourite={handleFavourite}
+                />
+              );
+            })
+          : ""}
+      </div>
+      <div
+        className={
+          favourites === true
+            ? "d-flex flex-wrap block--prod-list block--hide"
+            : "d-flex flex-wrap block--prod-list"
+        }
+      >
         {loading === true && "Loading"}
         {filterBeer.length === 0 && loading === false
           ? `There are no beers with filters you provided`
@@ -120,6 +138,7 @@ function Beers() {
                 />
               );
             })}
+
         {beers.length === 0 && errorMsg}
       </div>
     </div>
