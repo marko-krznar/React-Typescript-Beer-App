@@ -19,6 +19,8 @@ function Beers() {
 
   const [term, setTerm] = useState("");
   const [alcoholContent, setAlcoholContent] = useState("100");
+  const [favourites, setFavourites] = useState(false);
+  const [favouritebeers, setFavouritebeers] = useState<any[]>([]);
   const { loading, beers, errorMsg } = state;
 
   useEffect(() => {
@@ -52,6 +54,19 @@ function Beers() {
     }
   });
 
+  const handleFavourite = (beer: any) => {
+    const existingBeer = favouritebeers.find((x) => x.id === beer.id);
+    if (existingBeer) {
+      setFavouritebeers(favouritebeers.filter((x) => x.id !== beer.id));
+    } else {
+      setFavouritebeers([...favouritebeers, beer]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("favouriteBeers", JSON.stringify(favouritebeers));
+  }, [favouritebeers]);
+
   return (
     <div className="block--container pg-beers">
       <h2>Legendary Beer Brewerly</h2>
@@ -81,13 +96,29 @@ function Beers() {
             <span>100%</span>
           </div>
         </div>
+        {/* <div className="block--favourites">
+          <h3>Show only favourites</h3>
+          <input
+            type="checkbox"
+            id="favourites"
+            name="favourites"
+            value="favourites"
+            onChange={() => setFavourites(!favourites)}
+          ></input>
+        </div> */}
       </div>
       <div className="d-flex flex-wrap block--prod-list">
         {loading === true && "Loading"}
         {filterBeer.length === 0 && loading === false
           ? `There are no beers with filters you provided`
           : filterBeer.map((beer) => {
-              return <BeerSingle key={beer.id} beer={beer} />;
+              return (
+                <BeerSingle
+                  key={beer.id}
+                  beer={beer}
+                  handleFavourite={handleFavourite}
+                />
+              );
             })}
         {beers.length === 0 && errorMsg}
       </div>

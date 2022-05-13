@@ -1,25 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-interface IState {
-  favouriteBeers: [];
-}
-
-export default function BeerSingle({ beer }: any) {
-  const [state, setState] = useState<IState>({
-    favouriteBeers: [],
-  });
-  const { favouriteBeers } = state;
-  const handleFavourites = (e: any, beer: any) => {
-    setState({
-      ...favouriteBeers,
-      favouriteBeers: beer,
-    });
-  };
-
+export default function BeerSingle({ beer, handleFavourite }: any) {
   return (
     <div className="single-item">
+      {/* <i className="bi bi-star" onClick={() => handleFavourite(beer)}></i> */}
       <span className="block--abv">{beer.abv}%</span>
       <div className="img--frame">
         <img src={beer.image_url} alt={beer.name} />
