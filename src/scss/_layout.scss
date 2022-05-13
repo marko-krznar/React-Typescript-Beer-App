@@ -40,6 +40,10 @@ body {
   padding: 0 2rem;
 }
 
+.block--hide {
+  display: none;
+}
+
 @media (max-width: 576px) {
   .m--flex-direction-column {
     flex-direction: column;

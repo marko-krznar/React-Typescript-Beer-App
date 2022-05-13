@@ -20,10 +20,6 @@ button,
     cursor: pointer;
     background: transparent;
     transition: 0.2s linear;
-    // i,
-    // span {
-    //   color: #424242;
-    // }
   }
   &.btn--back {
     font-size: 0.75rem;
@@ -35,12 +31,15 @@ button,
     opacity: 0.4;
   }
 }
-i.bi.bi-star {
+.single-item i.bi {
   position: absolute;
   top: 1rem;
   right: 1rem;
   font-size: 1.5rem;
   line-height: 1.5rem;
+  &.bi-star-fill {
+    color: #f5ad16;
+  }
   &:hover {
     cursor: pointer;
     color: #f5ad16;
