@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-export default function BeerSingle({
-  beer,
-  handleFavourite,
-  favourites,
-  favouritebeers,
-}: any) {
+export default function BeerSingle({ beer, handleFavourite, favourites }: any) {
   return (
     <div className="single-item">
       <i
         className={favourites ? "bi bi-star-fill" : "bi bi-star"}
         onClick={() => {
-          handleFavourite(beer);
+          {
+            handleFavourite(beer);
+          }
         }}
       ></i>
       <span className="block--abv">{beer.abv}%</span>
