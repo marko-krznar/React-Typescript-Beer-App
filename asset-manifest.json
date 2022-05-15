@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/React-Typescript-Beer-App/static/css/main.a9dfccb6.css",
-    "main.js": "/React-Typescript-Beer-App/static/js/main.9797b6ec.js",
+    "main.js": "/React-Typescript-Beer-App/static/js/main.fb680df0.js",
     "static/media/beer-day-n.webp": "/React-Typescript-Beer-App/static/media/beer-day-n.d690951294e5267d7235.webp",
     "static/media/beer-logo.webp": "/React-Typescript-Beer-App/static/media/beer-logo.ba3dde2c88ad9868db9e.webp",
     "index.html": "/React-Typescript-Beer-App/index.html",
     "main.a9dfccb6.css.map": "/React-Typescript-Beer-App/static/css/main.a9dfccb6.css.map",
-    "main.9797b6ec.js.map": "/React-Typescript-Beer-App/static/js/main.9797b6ec.js.map"
+    "main.fb680df0.js.map": "/React-Typescript-Beer-App/static/js/main.fb680df0.js.map"
   },
   "entrypoints": [
     "static/css/main.a9dfccb6.css",
-    "static/js/main.9797b6ec.js"
+    "static/js/main.fb680df0.js"
   ]
 }
