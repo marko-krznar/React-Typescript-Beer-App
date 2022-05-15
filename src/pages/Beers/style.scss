@@ -9,9 +9,11 @@
   flex: 1 1 100%;
 }
 .block--filter-sort {
+  flex-wrap: wrap;
   margin-bottom: 2rem;
   > div {
     margin-right: 2rem;
+    margin-bottom: 2rem;
     &:last-of-type {
       margin-right: 0;
     }
