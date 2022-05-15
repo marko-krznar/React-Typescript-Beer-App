@@ -13,6 +13,9 @@ function Home() {
           <li>Display beer list</li>
           <li>Display single beer</li>
           <li>Filter by beer name</li>
+          <li>Filter by Alcohol content (20%)</li>
+          <li>Sort by % Alcohol</li>
+          <li>Sort by Name</li>
         </ul>
         <Link
           to={"/React-Typescript-Beer-App/beers"}
