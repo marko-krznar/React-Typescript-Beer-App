@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-export default function BeerSingle({ beer, handleFavourite }: any) {
+export default function BeerSingle({
+  beer,
+  handleFavourite,
+  favourites,
+  favouritebeers,
+}: any) {
   return (
     <div className="single-item">
       <i
-        className="bi bi-star"
+        className={favourites ? "bi bi-star-fill" : "bi bi-star"}
         onClick={() => {
           handleFavourite(beer);
         }}

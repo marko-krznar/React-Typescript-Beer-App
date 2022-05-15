@@ -46,9 +46,7 @@ function Beers() {
   }, []);
 
   const filterBeer = beers.filter((beer) => {
-    if (favourites === true) {
-      return;
-    }
+    if (favourites === true) return;
     if (
       beer.name.toLowerCase().includes(term) &&
       beer.abv <= parseFloat(alcoholContent)
@@ -114,6 +112,7 @@ function Beers() {
                   key={beer.id}
                   beer={beer}
                   handleFavourite={handleFavourite}
+                  favourites={favourites}
                 />
               );
             })
@@ -135,6 +134,7 @@ function Beers() {
                   key={beer.id}
                   beer={beer}
                   handleFavourite={handleFavourite}
+                  favouritebeers={favouritebeers}
                 />
               );
             })}
