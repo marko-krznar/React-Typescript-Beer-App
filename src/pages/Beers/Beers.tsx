@@ -9,6 +9,11 @@ interface IState {
   beers: Ibeer[];
   errorMsg: string;
 }
+interface types {
+  normal: string;
+  name: string;
+  abv: string;
+}
 
 function Beers() {
   const [state, setState] = useState<IState>({
@@ -21,6 +26,7 @@ function Beers() {
   const [alcoholContent, setAlcoholContent] = useState("100");
   const [favourites, setFavourites] = useState(false);
   const [favouritebeers, setFavouritebeers] = useState<any[]>([]);
+  const [sortType, setSortType] = useState("normal");
   const { loading, beers, errorMsg } = state;
 
   useEffect(() => {
@@ -64,6 +70,42 @@ function Beers() {
     }
   };
 
+  const sortedBeers = () => {
+    if (sortType === "name") {
+      return (
+        filterBeer
+          .sort((a, b) => a.name.localeCompare(b.name))
+          // .sort(function (a, b) {return a.abv - b.abv;})}
+          .map((beer) => {
+            return (
+              <BeerSingle
+                key={beer.id}
+                beer={beer}
+                handleFavourite={handleFavourite}
+                favouritebeers={favouritebeers}
+              />
+            );
+          })
+      );
+    }
+    if (sortType === "abv") {
+      return filterBeer
+        .sort(function (a, b) {
+          return a.abv - b.abv;
+        })
+        .map((beer) => {
+          return (
+            <BeerSingle
+              key={beer.id}
+              beer={beer}
+              handleFavourite={handleFavourite}
+              favouritebeers={favouritebeers}
+            />
+          );
+        });
+    }
+  };
+
   return (
     <div className="block--container pg-beers">
       <h2>Legendary Beer Brewerly</h2>
@@ -103,6 +145,21 @@ function Beers() {
             onChange={() => setFavourites(!favourites)}
           ></input>
         </div>
+        <div className="block--sort d-flex direction-column">
+          <label htmlFor="sort">Sort:</label>
+          <select
+            name="sort"
+            id="sort"
+            value={sortType}
+            onChange={(e) => setSortType(e.target.value)}
+          >
+            <option value="normal" defaultChecked>
+              ...
+            </option>
+            <option value="name">Sort by name</option>
+            <option value="abv">Sort by % alcohol</option>
+          </select>
+        </div>
       </div>
       <div className="d-flex flex-wrap block--prod-list block--favourites">
         {favouritebeers.length >= 1 && favourites === true
@@ -126,18 +183,24 @@ function Beers() {
         }
       >
         {loading === true && "Loading"}
-        {filterBeer.length === 0 && loading === false
-          ? `There are no beers with filters you provided`
-          : filterBeer.map((beer) => {
-              return (
-                <BeerSingle
-                  key={beer.id}
-                  beer={beer}
-                  handleFavourite={handleFavourite}
-                  favouritebeers={favouritebeers}
-                />
-              );
-            })}
+        {filterBeer.length === 0 && loading === false ? (
+          `There are no beers with filters you provided`
+        ) : (
+          <>
+            {sortType === "name" || sortType === "abv"
+              ? sortedBeers()
+              : filterBeer.map((beer) => {
+                  return (
+                    <BeerSingle
+                      key={beer.id}
+                      beer={beer}
+                      handleFavourite={handleFavourite}
+                      favouritebeers={favouritebeers}
+                    />
+                  );
+                })}
+          </>
+        )}
 
         {beers.length === 0 && errorMsg}
       </div>
