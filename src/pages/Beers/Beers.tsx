@@ -20,9 +20,10 @@ function Beers() {
   const [term, setTerm] = useState("");
   const [alcoholContent, setAlcoholContent] = useState("100");
   const [favourites, setFavourites] = useState(false);
-  const savedFavBeers = JSON.parse(localStorage.getItem("favBeers") || "");
+  // const savedFavBeers = JSON.parse(localStorage.getItem("favBeers") || "");
   const [favouritebeers, setFavouritebeers] = useState<any[]>(
-    savedFavBeers || []
+    // savedFavBeers || []
+    []
   );
   const [sortType, setSortType] = useState("normal");
 
@@ -203,7 +204,6 @@ function Beers() {
                       beer={beer}
                       handleFavourite={handleFavourite}
                       favouritebeers={favouritebeers}
-                      // Results of checking if id is in favourites or not
                     />
                   );
                 })}
