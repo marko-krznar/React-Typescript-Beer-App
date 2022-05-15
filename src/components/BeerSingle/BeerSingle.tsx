@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-export default function BeerSingle({ beer, handleFavourite, favourites }: any) {
+export default function BeerSingle({ beer }: any) {
   return (
     <div className="single-item">
-      <i
-        className={favourites ? "bi bi-star-fill" : "bi bi-star"}
-        onClick={() => {
-          {
-            handleFavourite(beer);
-          }
-        }}
-      ></i>
       <span className="block--abv">{beer.abv}%</span>
       <div className="img--frame">
         <img src={beer.image_url} alt={beer.name} />
