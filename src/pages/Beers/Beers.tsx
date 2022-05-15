@@ -9,11 +9,6 @@ interface IState {
   beers: Ibeer[];
   errorMsg: string;
 }
-interface types {
-  normal: string;
-  name: string;
-  abv: string;
-}
 
 function Beers() {
   const [state, setState] = useState<IState>({
@@ -25,8 +20,12 @@ function Beers() {
   const [term, setTerm] = useState("");
   const [alcoholContent, setAlcoholContent] = useState("100");
   const [favourites, setFavourites] = useState(false);
-  const [favouritebeers, setFavouritebeers] = useState<any[]>([]);
+  const savedFavBeers = JSON.parse(localStorage.getItem("favBeers") || "");
+  const [favouritebeers, setFavouritebeers] = useState<any[]>(
+    savedFavBeers || []
+  );
   const [sortType, setSortType] = useState("normal");
+
   const { loading, beers, errorMsg } = state;
 
   useEffect(() => {
@@ -72,21 +71,18 @@ function Beers() {
 
   const sortedBeers = () => {
     if (sortType === "name") {
-      return (
-        filterBeer
-          .sort((a, b) => a.name.localeCompare(b.name))
-          // .sort(function (a, b) {return a.abv - b.abv;})}
-          .map((beer) => {
-            return (
-              <BeerSingle
-                key={beer.id}
-                beer={beer}
-                handleFavourite={handleFavourite}
-                favouritebeers={favouritebeers}
-              />
-            );
-          })
-      );
+      return filterBeer
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((beer) => {
+          return (
+            <BeerSingle
+              key={beer.id}
+              beer={beer}
+              handleFavourite={handleFavourite}
+              favouritebeers={favouritebeers}
+            />
+          );
+        });
     }
     if (sortType === "abv") {
       return filterBeer
@@ -105,6 +101,17 @@ function Beers() {
         });
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("favBeers", JSON.stringify(favouritebeers));
+  }, [favouritebeers]);
+
+  useEffect(() => {
+    const favBeers = JSON.parse(localStorage.getItem("favBeers") || "");
+    if (favBeers) {
+      setFavouritebeers(favBeers);
+    }
+  }, []);
 
   return (
     <div className="block--container pg-beers">
@@ -196,6 +203,7 @@ function Beers() {
                       beer={beer}
                       handleFavourite={handleFavourite}
                       favouritebeers={favouritebeers}
+                      // Results of checking if id is in favourites or not
                     />
                   );
                 })}
