@@ -20,11 +20,7 @@ function Beers() {
   const [term, setTerm] = useState("");
   const [alcoholContent, setAlcoholContent] = useState("100");
   const [favourites, setFavourites] = useState(false);
-  // const savedFavBeers = JSON.parse(localStorage.getItem("favBeers") || "");
-  const [favouritebeers, setFavouritebeers] = useState<any[]>(
-    // savedFavBeers || []
-    []
-  );
+  const [favouritebeers, setFavouritebeers] = useState<any[]>([]);
   const [sortType, setSortType] = useState("normal");
 
   const { loading, beers, errorMsg } = state;
@@ -61,12 +57,26 @@ function Beers() {
     }
   });
 
+  useEffect(() => {
+    if (localStorage.getItem("favBeers") === null) return;
+    const beerFavourites = JSON.parse(localStorage.getItem("favBeers") || "");
+    setFavouritebeers(beerFavourites);
+  }, []);
+
+  const saveToLocalStorage = (items: any) => {
+    localStorage.setItem("favBeers", JSON.stringify(items));
+  };
+
   const handleFavourite = (beer: any) => {
     const existingBeer = favouritebeers.find((x) => x.id === beer.id);
     if (existingBeer) {
-      setFavouritebeers(favouritebeers.filter((x) => x.id !== beer.id));
+      const newFavBeersList = favouritebeers.filter((x) => x.id !== beer.id);
+      setFavouritebeers(newFavBeersList);
+      saveToLocalStorage(newFavBeersList);
     } else {
-      setFavouritebeers([...favouritebeers, beer]);
+      const newFavBeersList = [...favouritebeers, beer];
+      setFavouritebeers(newFavBeersList);
+      saveToLocalStorage(newFavBeersList);
     }
   };
 
@@ -103,16 +113,38 @@ function Beers() {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("favBeers", JSON.stringify(favouritebeers));
-  }, [favouritebeers]);
-
-  useEffect(() => {
-    const favBeers = JSON.parse(localStorage.getItem("favBeers") || "");
-    if (favBeers) {
-      setFavouritebeers(favBeers);
+  const sortedFavBeers = () => {
+    if (sortType === "name") {
+      return favouritebeers
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((beer) => {
+          return (
+            <BeerSingle
+              key={beer.id}
+              beer={beer}
+              handleFavourite={handleFavourite}
+              favourites={favourites}
+            />
+          );
+        });
     }
-  }, []);
+    if (sortType === "abv") {
+      return favouritebeers
+        .sort(function (a, b) {
+          return a.abv - b.abv;
+        })
+        .map((beer) => {
+          return (
+            <BeerSingle
+              key={beer.id}
+              beer={beer}
+              handleFavourite={handleFavourite}
+              favourites={favourites}
+            />
+          );
+        });
+    }
+  };
 
   return (
     <div className="block--container pg-beers">
@@ -170,18 +202,24 @@ function Beers() {
         </div>
       </div>
       <div className="d-flex flex-wrap block--prod-list block--favourites">
-        {favouritebeers.length >= 1 && favourites === true
-          ? favouritebeers.map((beer) => {
-              return (
-                <BeerSingle
-                  key={beer.id}
-                  beer={beer}
-                  handleFavourite={handleFavourite}
-                  favourites={favourites}
-                />
-              );
-            })
-          : ""}
+        {favouritebeers.length >= 1 && favourites === true ? (
+          <>
+            {sortType === "name" || sortType === "abv"
+              ? sortedFavBeers()
+              : favouritebeers.map((beer) => {
+                  return (
+                    <BeerSingle
+                      key={beer.id}
+                      beer={beer}
+                      handleFavourite={handleFavourite}
+                      favourites={favourites}
+                    />
+                  );
+                })}
+          </>
+        ) : (
+          ""
+        )}
       </div>
       <div
         className={
