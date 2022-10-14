@@ -11,4 +11,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Sort by % Alcohol
 - Sort by Name
 
-[See App](https://marko-krznar.github.io/React-Typescript-Beer-App)
+:point_right:  [Check out the App](https://marko-krznar.github.io/React-Typescript-Beer-App)
