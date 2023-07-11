@@ -1,24 +1,25 @@
 .block--container.nav {
-  padding: 2rem;
+	padding: 2rem;
 }
 .block--links a {
-  padding-right: 1rem;
-  text-decoration: unset;
-  text-transform: uppercase;
-  color: #fff;
-  &:last-child {
-    padding-right: 0;
-  }
+	padding-right: 1rem;
+	text-decoration: unset;
+	text-transform: uppercase;
+	color: #fff;
+	&:last-child {
+		padding-right: 0;
+	}
 }
-.block-logo img {
-  max-height: 80px;
+.block-logo svg {
+	display: block;
+	font-size: 2rem;
 }
 
 @media (max-width: 576px) {
-  .block--container.nav {
-    padding: 2rem 1rem;
-    .block-logo {
-      margin-bottom: 1rem;
-    }
-  }
+	.block--container.nav {
+		padding: 2rem 1rem;
+		.block-logo {
+			margin-bottom: 1rem;
+		}
+	}
 }
