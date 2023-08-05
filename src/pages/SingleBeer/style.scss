@@ -1,156 +1,156 @@
 @import "../../scss/colors";
 
 .block--beer-info {
-  max-width: 1400px;
-  margin: 4rem auto;
+	max-width: 1400px;
+	margin: 4rem auto;
 }
 .block--headline {
-  color: #fff;
-  text-align: left;
-  position: relative;
-  h2 {
-    font-size: 4rem;
-  }
+	color: #fff;
+	text-align: left;
+	position: relative;
+	h2 {
+		font-size: 4rem;
+	}
 }
-.block--info {
-  background: rgb(255 255 255 / 10%);
-  margin-left: -6rem;
-  padding: 4rem 4rem 4rem 11rem;
-  border-radius: 1rem;
-  position: relative;
-}
+// .block--info {
+//   background: rgb(255 255 255 / 10%);
+//   margin-left: -6rem;
+//   padding: 4rem 4rem 4rem 11rem;
+//   border-radius: 1rem;
+//   position: relative;
+// }
 .block--image-frame {
-  text-align: center;
-  position: relative;
-  img {
-    max-width: 180px;
-  }
+	text-align: center;
+	position: relative;
+	img {
+		max-width: 180px;
+	}
 }
 .block--specs {
-  > div {
-    flex: 1 1 30%;
-    h3 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      margin-top: 1.5rem;
-    }
-    li,
-    p {
-      margin-bottom: 0.5rem;
-      opacity: 0.6;
-    }
-  }
-  .bi-hand-index-fill::before {
-    transform: rotate(180deg);
-  }
+	> div {
+		flex: 1 1 30%;
+		h3 {
+			font-size: 1.5rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+			margin-top: 1.5rem;
+		}
+		li,
+		p {
+			margin-bottom: 0.5rem;
+			opacity: 0.6;
+		}
+	}
+	.bi-hand-index-fill::before {
+		transform: rotate(180deg);
+	}
 }
 .txt-tag {
-  background: $primary;
-  padding: 0.5rem 1.5rem;
-  display: inline-block;
-  margin: 0 0 1.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
+	background: $primary;
+	padding: 0.5rem 1.5rem;
+	display: inline-block;
+	margin: 0 0 1.5rem;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 .block--bcg-btn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  .tag--back {
-    background: $primary;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem 0 1rem 0;
-    display: inline-flex;
-    text-decoration: none;
-    overflow: hidden;
-    span {
-      display: inline-block;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-right: -10rem;
-      transition: 0.2s linear;
-    }
-    .bi-chevron-left::before {
-      margin-left: -0.5rem;
-      margin-right: 0.5rem;
-    }
-    &:hover {
-      color: #fff;
-      span {
-        margin-right: 0;
-        padding-left: 1rem;
-        margin-left: -1rem;
-        transition: 0.2s linear;
-      }
-    }
-  }
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	.tag--back {
+		background: $primary;
+		padding: 0.5rem 1rem;
+		border-radius: 1rem 0 1rem 0;
+		display: inline-flex;
+		text-decoration: none;
+		overflow: hidden;
+		span {
+			display: inline-block;
+			text-transform: uppercase;
+			font-weight: bold;
+			margin-right: -10rem;
+			transition: 0.2s linear;
+		}
+		.bi-chevron-left::before {
+			margin-left: -0.5rem;
+			margin-right: 0.5rem;
+		}
+		&:hover {
+			color: #fff;
+			span {
+				margin-right: 0;
+				padding-left: 1rem;
+				margin-left: -1rem;
+				transition: 0.2s linear;
+			}
+		}
+	}
 }
 
 @media (max-width: 1200px) {
-  .block--info {
-    padding: 4rem 2rem 4rem 8rem;
-  }
+	.block--info {
+		padding: 4rem 2rem 4rem 8rem;
+	}
 }
 
 @media (max-width: 992px) {
-  .pg--single-product {
-    .block--beer-info {
-      position: relative;
-    }
-    .block--image-frame {
-      position: absolute;
-      top: -3rem;
-      right: -1.5rem;
-      img {
-        max-width: 100%;
-        max-height: 240px;
-      }
-    }
-    .block--info {
-      padding: 4rem;
-      margin-left: 0;
-    }
-    .block--bcg-btn .tag--back span {
-      margin-right: 0;
-    }
-  }
+	.pg--single-product {
+		.block--beer-info {
+			position: relative;
+		}
+		.block--image-frame {
+			position: absolute;
+			top: -3rem;
+			right: -1.5rem;
+			img {
+				max-width: 100%;
+				max-height: 240px;
+			}
+		}
+		.block--info {
+			padding: 4rem;
+			margin-left: 0;
+		}
+		.block--bcg-btn .tag--back span {
+			margin-right: 0;
+		}
+	}
 }
 
 @media (max-width: 576px) {
-  .pg--single-product .block--info {
-    padding: 4rem 2rem;
-  }
-  .pg--single-product .block--beer-info {
-    .block--headline {
-      padding-right: 4rem;
-    }
-  }
+	.pg--single-product .block--info {
+		padding: 4rem 2rem;
+	}
+	.pg--single-product .block--beer-info {
+		.block--headline {
+			padding-right: 4rem;
+		}
+	}
 }
 
 @media (max-width: 420px) {
-  .pg--single-product {
-    .block--image-frame {
-      top: -4rem;
-      right: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    .block--info {
-      padding: 12rem 2rem 4rem;
-    }
-    .block--beer-info .block--headline {
-      padding-right: 0;
-      h2 {
-        font-size: 2rem;
-        text-align: center;
-      }
-    }
-    .txt-tag {
-      width: 100%;
-      text-align: center;
-    }
-  }
+	.pg--single-product {
+		.block--image-frame {
+			top: -4rem;
+			right: 0;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		.block--info {
+			padding: 12rem 2rem 4rem;
+		}
+		.block--beer-info .block--headline {
+			padding-right: 0;
+			h2 {
+				font-size: 2rem;
+				text-align: center;
+			}
+		}
+		.txt-tag {
+			width: 100%;
+			text-align: center;
+		}
+	}
 }

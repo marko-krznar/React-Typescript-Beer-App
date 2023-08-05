@@ -2,52 +2,60 @@
 
 button,
 .btn {
-  background: $primary;
-  box-shadow: none;
-  position: relative;
-  border: 1px solid $primary;
-  line-height: 1;
-  text-transform: uppercase;
-  padding: 1rem 2rem;
-  border-radius: 1.5rem 0 1.5rem 0;
-  text-decoration: none;
-  font-size: 0.875rem;
-  text-align: center;
-  display: inline-block;
-  color: #fff;
-  transition: 0.2s linear;
-  &:hover {
-    cursor: pointer;
-    background: transparent;
-    transition: 0.2s linear;
-  }
-  &.btn--back {
-    font-size: 0.75rem;
-    padding: 0.5rem 1.5rem;
-  }
-  &.is-disabled {
-    pointer-events: none;
-    transition: 0.2s linear;
-    opacity: 0.4;
-  }
+	// background: $primary;
+	background: $yellow;
+	box-shadow: none;
+	position: relative;
+	// border: 1px solid $primary;
+	line-height: 1;
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	font-size: 1rem;
+	text-align: center;
+	display: inline-block;
+	color: $gray-dark;
+	transition: 0.1s linear;
+
+	&:hover {
+		cursor: pointer;
+		background: $gray-dark-1;
+		color: $gray-light;
+		transition: 0.1s linear;
+	}
+
+	&.btn--back {
+		font-size: 0.75rem;
+		padding: 0.5rem 1.5rem;
+	}
+
+	&.is-disabled {
+		pointer-events: none;
+		transition: 0.1s linear;
+		opacity: 0.4;
+	}
 }
+
 .single-item i.bi {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  &.bi-star-fill {
-    color: #f5ad16;
-  }
-  &:hover {
-    cursor: pointer;
-    color: #f5ad16;
-  }
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+
+	&.bi-star-fill {
+		color: #f5ad16;
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: #f5ad16;
+	}
 }
 @media (max-width: 576px) {
-  button,
-  .btn {
-    width: 100%;
-  }
+	button,
+	.btn {
+		width: 100%;
+	}
 }

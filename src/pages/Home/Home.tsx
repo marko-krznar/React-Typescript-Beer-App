@@ -1,34 +1,28 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import beerDay from "../../images/beer-day-n.webp";
 import "./style.scss";
 
 function Home() {
-  return (
-    <div className="block--container pg-home d-flex align-items-center">
-      <div className="block--info">
-        <h2>Beer App</h2>
-        <p>Features</p>
-        <ul>
-          <li>Display beer list</li>
-          <li>Display single beer</li>
-          <li>Filter by beer name</li>
-          <li>Filter by Alcohol content (20%)</li>
-          <li>Sort by % Alcohol</li>
-          <li>Sort by Name</li>
-        </ul>
-        <Link
-          to={"/React-Typescript-Beer-App/beers"}
-          className="btn btn--bcg-middle"
-        >
-          See beers
-        </Link>
-      </div>
-      <div className="block--image">
-        <img src={beerDay} alt="beer-day" />
-      </div>
-    </div>
-  );
+	return (
+		<div className="block--container pg-home d-flex align-items-center">
+			<div className="block--info">
+				<h1 className="headline">the Beer Project</h1>
+				<p className="text-description">
+					Welcome to the Beer Project! This practice endeavor brings
+					you a host of exciting features designed to enhance your
+					beer exploration. Let's delve into the key functionalities
+					we've incorporated: beer list, single beer, filter by beer
+					name or Alcohol content (20%) and sort by % Alcohol or by
+					Name.
+				</p>
+				<Link
+					to={"/React-Typescript-Beer-App/beers"}
+					className="btn btn--bcg-middle"
+				>
+					See all beers
+				</Link>
+			</div>
+		</div>
+	);
 }
 
 export default Home;
