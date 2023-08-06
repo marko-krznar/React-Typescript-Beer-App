@@ -51,6 +51,12 @@ h1.headline {
 	text-transform: uppercase;
 }
 
+h2.headline {
+	font-size: 1.5rem;
+	line-height: 120%;
+	text-transform: uppercase;
+}
+
 @media (max-width: 576px) {
 	p,
 	li {
