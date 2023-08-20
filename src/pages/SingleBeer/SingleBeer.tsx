@@ -57,12 +57,14 @@ function SingleBeer() {
 								<span className="txt-tag">
 									{singleBeer[0].tagline}
 								</span>
-								<h1>{singleBeer[0].name}</h1>
+								<h1 className="headline">
+									{singleBeer[0].name}
+								</h1>
 								<p>{singleBeer[0].description}</p>
 							</div>
 							<div className="block--specs d-flex m--flex-direction-column">
 								<div>
-									<h2>
+									<h2 className="headline">
 										<i className="bi bi-hand-thumbs-up-fill"></i>{" "}
 										Food pairing
 									</h2>
@@ -77,7 +79,7 @@ function SingleBeer() {
 									</ul>
 								</div>
 								<div>
-									<h2>
+									<h2 className="headline">
 										<i className="bi bi-hand-index-fill"></i>{" "}
 										Brewers tips
 									</h2>
