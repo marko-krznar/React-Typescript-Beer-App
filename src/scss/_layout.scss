@@ -1,4 +1,5 @@
 @import "./colors";
+@import "./breakpoints";
 
 $alignments: (
 	between: space-between,
@@ -47,11 +48,8 @@ body {
 	display: none;
 }
 
-@media (max-width: 576px) {
-	.m--flex-direction-column {
-		flex-direction: column;
-		> * {
-			flex: 1 1 100%;
-		}
+@media (max-width: $small-mobile) {
+	.block--container {
+		padding: 0 2rem;
 	}
 }

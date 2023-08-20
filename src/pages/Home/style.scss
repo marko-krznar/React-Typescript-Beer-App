@@ -1,3 +1,5 @@
+@import "../../scss/breakpoints";
+
 .pg-home {
 	> div {
 		flex: 1 1 50%;
@@ -5,8 +7,7 @@
 
 	.block--info {
 		position: relative;
-		height: calc(100vh - 165px); // todo change this to css variable
-		top: -82.5px;
+		height: calc(100vh - 165px - 82.5px);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -14,6 +15,10 @@
 		max-width: 800px;
 		margin: auto;
 		gap: 2.5rem;
+
+		h1 {
+			text-align: center;
+		}
 	}
 
 	.block--info h1.headline,
@@ -22,34 +27,8 @@
 	}
 }
 
-@media (max-width: 1200px) {
-	.block--info {
-		padding: 4rem 2rem 4rem 6rem;
-	}
-}
-
-@media (max-width: 992px) {
-	.pg-home {
-		&.block--container {
-			flex-wrap: wrap;
-		}
-		> div {
-			flex: 1 1 100%;
-		}
-		.block--info {
-			margin-left: 0;
-			padding: 4rem;
-		}
-		.block--image {
-			position: absolute;
-			z-index: -1;
-			opacity: 0.02;
-		}
-	}
-}
-
-@media (max-width: 576px) {
-	.pg-home .block--info h2 {
-		font-size: 2rem;
+@media (max-width: $small-mobile) {
+	.pg-home .block--info {
+		height: auto;
 	}
 }

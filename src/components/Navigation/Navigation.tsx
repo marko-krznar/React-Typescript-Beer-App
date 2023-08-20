@@ -9,7 +9,7 @@ export default function Navigation() {
 
 	return (
 		<div
-			className="block--container nav d-flex justify-content-between align-items-center m--flex-direction-column"
+			className="block--container nav d-flex justify-content-between align-items-center"
 			ref={menu}
 		>
 			<div className="block-logo">

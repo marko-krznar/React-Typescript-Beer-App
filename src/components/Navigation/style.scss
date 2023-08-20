@@ -1,32 +1,33 @@
 @import "../../scss/colors";
+@import "../../scss/breakpoints";
 
 .block--container.nav {
 	padding: 2rem 5rem;
 }
+
 .block--links {
 	display: flex;
 	gap: 2.5rem;
 
 	a {
-		// padding-right: 1rem;
 		text-decoration: unset;
 		text-transform: uppercase;
 		color: $gray-light;
-		// &:last-child {
-		// 	padding-right: 0;
-		// }
 	}
 }
+
 .block-logo svg {
 	display: block;
 	font-size: 2rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: $small-mobile) {
 	.block--container.nav {
-		padding: 2rem 1rem;
+		flex-direction: column;
+		padding: 2.5rem 2rem;
+
 		.block-logo {
-			margin-bottom: 1rem;
+			margin-bottom: 1.25rem;
 		}
 	}
 }

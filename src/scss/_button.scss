@@ -6,11 +6,9 @@
 
 button,
 .btn {
-	// background: $primary;
 	background: $yellow;
 	box-shadow: none;
 	position: relative;
-	// border: 1px solid $primary;
 	line-height: 1;
 	text-transform: uppercase;
 	padding: 1rem 2rem;
@@ -55,11 +53,5 @@ button,
 	&:hover {
 		cursor: pointer;
 		color: #f5ad16;
-	}
-}
-@media (max-width: 576px) {
-	button,
-	.btn {
-		width: 100%;
 	}
 }
