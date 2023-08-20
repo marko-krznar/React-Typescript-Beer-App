@@ -1,19 +1,22 @@
 @import "../../scss/colors";
+@import "../../scss/breakpoints";
 
 .block--beer-info {
 	max-width: 1400px;
-	margin: 4rem auto;
+	margin: 0.5rem 0 2.5rem;
 	gap: 2.5rem;
-	align-items: flex-start;
+}
+
+.block--image {
+	flex: 0 0 30%;
 }
 
 .block--image-frame {
-	text-align: center;
-	position: relative;
+	position: sticky;
+	top: 2.5rem;
 	padding: 2.5rem;
 	background: $gray-dark-1;
 	border-radius: 0.5rem;
-	flex: 0 0 30%;
 
 	img {
 		max-width: 12rem;
@@ -57,69 +60,13 @@
 	color: $yellow;
 }
 
-// @media (max-width: 1200px) {
-// 	.block--info {
-// 		padding: 4rem 2rem 4rem 8rem;
-// 	}
-// }
-
-@media (max-width: 992px) {
-	.pg--single-product {
-		.block--beer-info {
-			position: relative;
-		}
-		.block--image-frame {
-			position: absolute;
-			top: -3rem;
-			right: -1.5rem;
-			img {
-				max-width: 100%;
-				max-height: 240px;
-			}
-		}
-		.block--info {
-			padding: 4rem;
-			margin-left: 0;
-		}
-		.block--bcg-btn .tag--back span {
-			margin-right: 0;
-		}
+@media (max-width: $mobile) {
+	.block--beer-info {
+		flex-direction: column;
 	}
-}
 
-@media (max-width: 576px) {
-	.pg--single-product .block--info {
-		padding: 4rem 2rem;
-	}
-	.pg--single-product .block--beer-info {
-		.block--headline {
-			padding-right: 4rem;
-		}
-	}
-}
-
-@media (max-width: 420px) {
-	.pg--single-product {
-		.block--image-frame {
-			top: -4rem;
-			right: 0;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-		}
-		.block--info {
-			padding: 12rem 2rem 4rem;
-		}
-		.block--beer-info .block--headline {
-			padding-right: 0;
-			h2 {
-				font-size: 2rem;
-				text-align: center;
-			}
-		}
-		.txt-tag {
-			width: 100%;
-			text-align: center;
-		}
+	.block--image-frame img {
+		max-width: 4rem;
+		max-height: 8rem;
 	}
 }

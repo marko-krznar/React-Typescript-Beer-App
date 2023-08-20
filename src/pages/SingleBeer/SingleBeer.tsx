@@ -46,11 +46,13 @@ function SingleBeer() {
 			{singleBeer != null && Array.isArray(singleBeer) && (
 				<>
 					<div className="block--beer-info d-flex justify-content-center">
-						<div className="block--image-frame">
-							<img
-								src={singleBeer[0].image_url}
-								alt={singleBeer[0].name}
-							/>
+						<div className="block--image">
+							<div className="block--image-frame">
+								<img
+									src={singleBeer[0].image_url}
+									alt={singleBeer[0].name}
+								/>
+							</div>
 						</div>
 						<div className="block--info">
 							<div className="block--headline">
@@ -86,15 +88,12 @@ function SingleBeer() {
 									<p>{singleBeer[0].brewers_tips}</p>
 								</div>
 							</div>
-							{/* <div className="block--bcg-btn"> */}
 							<Link
 								className="tag--back btn"
 								to={"/React-Typescript-Beer-App/beers"}
 							>
-								{/* <i className="bi bi-chevron-left"></i> */}
 								Back to Beers
 							</Link>
-							{/* </div> */}
 						</div>
 					</div>
 				</>
