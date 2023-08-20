@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/React-Typescript-Beer-App/static/css/main.d01bedc6.css",
-    "main.js": "/React-Typescript-Beer-App/static/js/main.413e2f88.js",
-    "static/media/beer-day-n.webp": "/React-Typescript-Beer-App/static/media/beer-day-n.d690951294e5267d7235.webp",
-    "static/media/beer-logo.webp": "/React-Typescript-Beer-App/static/media/beer-logo.ba3dde2c88ad9868db9e.webp",
+    "main.css": "/React-Typescript-Beer-App/static/css/main.3d6a2c63.css",
+    "main.js": "/React-Typescript-Beer-App/static/js/main.00ff0ee6.js",
+    "static/media/beer_app_logo.webp": "/React-Typescript-Beer-App/static/media/beer_app_logo.7323398a9955563e5e3f.webp",
     "index.html": "/React-Typescript-Beer-App/index.html",
-    "main.d01bedc6.css.map": "/React-Typescript-Beer-App/static/css/main.d01bedc6.css.map",
-    "main.413e2f88.js.map": "/React-Typescript-Beer-App/static/js/main.413e2f88.js.map"
+    "main.3d6a2c63.css.map": "/React-Typescript-Beer-App/static/css/main.3d6a2c63.css.map",
+    "main.00ff0ee6.js.map": "/React-Typescript-Beer-App/static/js/main.00ff0ee6.js.map"
   },
   "entrypoints": [
-    "static/css/main.d01bedc6.css",
-    "static/js/main.413e2f88.js"
+    "static/css/main.3d6a2c63.css",
+    "static/js/main.00ff0ee6.js"
   ]
 }
