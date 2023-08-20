@@ -1,4 +1,5 @@
 @import "../../scss/colors";
+@import "../../scss/breakpoints";
 
 .pg-beers > h2 {
 	text-align: center;
@@ -58,20 +59,20 @@ select {
 	min-width: 12.5rem;
 }
 
-@media (max-width: 1200px) {
-	.single-item {
-		flex-basis: calc(50% - 2rem);
+@media (max-width: $tablet) {
+	.block--prod-list {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
-@media (max-width: 576px) {
-	.single-item {
-		flex: 1 1 100%;
-		margin: 1rem 0 2rem;
-		&:hover {
-			margin: 1rem 0 2rem;
-			border-radius: 2rem 0 2rem 0;
-			box-shadow: none;
-		}
+@media (max-width: $mobile) {
+	.block--prod-list {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: $small-mobile) {
+	.block--filter-item {
+		width: 100%;
 	}
 }
