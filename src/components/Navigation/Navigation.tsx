@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRef } from "react";
+
 import "./style.scss";
 
 import beerLogo from "../../images/beer_app_logo.webp";
 
 export default function Navigation() {
 	const menu = useRef<HTMLDivElement>(null);
+
+	let location = useLocation();
+
+	console.log(location.pathname);
 
 	return (
 		<div
@@ -16,8 +21,26 @@ export default function Navigation() {
 				<img src={beerLogo} alt="beer-logo" />
 			</div>
 			<div className="block--links">
-				<Link to={"/React-Typescript-Beer-App"}>Home</Link>
-				<Link to={"/React-Typescript-Beer-App/beers"}>Beers</Link>
+				<Link
+					className={
+						location.pathname === "/React-Typescript-Beer-App"
+							? "block--link block--link-active"
+							: "block--link"
+					}
+					to={"/React-Typescript-Beer-App"}
+				>
+					Home
+				</Link>
+				<Link
+					className={
+						location.pathname === "/React-Typescript-Beer-App/beers"
+							? "block--link block--link-active"
+							: "block--link"
+					}
+					to={"/React-Typescript-Beer-App/beers"}
+				>
+					Beers
+				</Link>
 			</div>
 		</div>
 	);
