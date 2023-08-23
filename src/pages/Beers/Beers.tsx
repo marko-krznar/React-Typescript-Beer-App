@@ -4,6 +4,8 @@ import { Ibeer } from "../../models/Ibeer";
 import { BeersService } from "../../services/BeersService";
 import "./style.scss";
 
+import { BsChevronUp } from "react-icons/bs";
+
 interface IState {
 	loading: boolean;
 	beers: Ibeer[];
@@ -73,71 +75,82 @@ function Beers() {
 		}
 	};
 
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+	};
+
 	return (
-		<div className="block--container pg-beers">
-			{/* <h2>Legendary Beer Brewerly</h2> */}
-			<div className="block--filter-sort d-flex">
-				<div className="block--filter-item">
-					<label htmlFor="searchTerm" className="text">
-						Search by name
-					</label>
-					<input
-						required
-						type="text"
-						value={term}
-						onChange={(e) => setTerm(e.target.value)}
-						name="searchTerm"
-					/>
+		<>
+			<div className="block--container pg-beers">
+				<div className="block--filter-sort d-flex">
+					<div className="block--filter-item">
+						<label htmlFor="searchTerm" className="text">
+							Search by name
+						</label>
+						<input
+							required
+							type="text"
+							value={term}
+							onChange={(e) => setTerm(e.target.value)}
+							name="searchTerm"
+						/>
+					</div>
+					<div className="block--filter-item">
+						<label htmlFor="sort">Sort</label>
+						<select
+							name="sort"
+							id="sort"
+							value={sortType}
+							onChange={(e) => setSortType(e.target.value)}
+						>
+							<option value="normal" defaultChecked>
+								...
+							</option>
+							<option value="name">Sort by name</option>
+							<option value="abv">Sort by % alcohol</option>
+						</select>
+					</div>
+					<div className="block--filter-item">
+						<label>Alcohol content</label>
+						<input
+							type="range"
+							value={alcoholContent}
+							onChange={(e) => setAlcoholContent(e.target.value)}
+							id="alcoholPercentage"
+							name="vol"
+							min="0"
+							max="100"
+						/>
+						<span>{alcoholContent}%</span>
+					</div>
 				</div>
-				<div className="block--filter-item">
-					<label htmlFor="sort">Sort</label>
-					<select
-						name="sort"
-						id="sort"
-						value={sortType}
-						onChange={(e) => setSortType(e.target.value)}
-					>
-						<option value="normal" defaultChecked>
-							...
-						</option>
-						<option value="name">Sort by name</option>
-						<option value="abv">Sort by % alcohol</option>
-					</select>
-				</div>
-				<div className="block--filter-item">
-					<label>Alcohol content</label>
-					<input
-						type="range"
-						value={alcoholContent}
-						onChange={(e) => setAlcoholContent(e.target.value)}
-						id="alcoholPercentage"
-						name="vol"
-						min="0"
-						max="100"
-					/>
-					<span>{alcoholContent}%</span>
+
+				<div className="block--prod-list">
+					{loading === true && "Loading"}
+					{filterBeer.length === 0 && loading === false ? (
+						`There are no beers with filters you provided`
+					) : (
+						<>
+							{sortType === "name" || sortType === "abv"
+								? sortedBeers()
+								: filterBeer.map((beer) => {
+										return (
+											<BeerSingle
+												key={beer.id}
+												beer={beer}
+											/>
+										);
+								  })}
+						</>
+					)}
+
+					{beers.length === 0 && errorMsg}
 				</div>
 			</div>
-
-			<div className="block--prod-list">
-				{loading === true && "Loading"}
-				{filterBeer.length === 0 && loading === false ? (
-					`There are no beers with filters you provided`
-				) : (
-					<>
-						{sortType === "name" || sortType === "abv"
-							? sortedBeers()
-							: filterBeer.map((beer) => {
-									return (
-										<BeerSingle key={beer.id} beer={beer} />
-									);
-							  })}
-					</>
-				)}
-
-				{beers.length === 0 && errorMsg}
-			</div>
-		</div>
+			<button className="btn scroll-to-top-btn" onClick={scrollToTop}>
+				<BsChevronUp />
+			</button>
+		</>
 	);
 }
 

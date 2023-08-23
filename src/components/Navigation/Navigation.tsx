@@ -10,8 +10,6 @@ export default function Navigation() {
 
 	let location = useLocation();
 
-	console.log(location.pathname);
-
 	return (
 		<div
 			className="block--container nav d-flex justify-content-between align-items-center"
