@@ -16,7 +16,9 @@ export default function Navigation() {
 			ref={menu}
 		>
 			<div className="block-logo">
-				<img src={beerLogo} alt="beer-logo" />
+				<Link to={"/React-Typescript-Beer-App"}>
+					<img src={beerLogo} alt="beer-logo" />
+				</Link>
 			</div>
 			<div className="block--links">
 				<Link
