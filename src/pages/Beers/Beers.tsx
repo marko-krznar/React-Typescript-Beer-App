@@ -22,6 +22,7 @@ function Beers() {
 	const [term, setTerm] = useState("");
 	const [alcoholContent, setAlcoholContent] = useState("100");
 	const [sortType, setSortType] = useState("normal");
+	const [showButton, setShowButton] = useState(false);
 
 	const { loading, beers, errorMsg } = state;
 
@@ -78,6 +79,22 @@ function Beers() {
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY >= 400) {
+				setShowButton(true);
+			} else {
+				setShowButton(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
 		<>
@@ -147,9 +164,11 @@ function Beers() {
 					{beers.length === 0 && errorMsg}
 				</div>
 			</div>
-			<button className="btn scroll-to-top-btn" onClick={scrollToTop}>
-				<BsChevronUp />
-			</button>
+			{showButton && (
+				<button className="btn scroll-to-top-btn" onClick={scrollToTop}>
+					<BsChevronUp />
+				</button>
+			)}
 		</>
 	);
 }
