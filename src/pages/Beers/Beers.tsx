@@ -65,15 +65,14 @@ function Beers() {
 					return <BeerSingle key={beer.id} beer={beer} />;
 				});
 		}
-		if (sortType === "abv") {
-			return filterBeer
-				.sort(function (a, b) {
-					return a.abv - b.abv;
-				})
-				.map((beer) => {
-					return <BeerSingle key={beer.id} beer={beer} />;
-				});
-		}
+
+		return filterBeer
+			.sort(function (a, b) {
+				return a.abv - b.abv;
+			})
+			.map((beer) => {
+				return <BeerSingle key={beer.id} beer={beer} />;
+			});
 	};
 
 	const scrollToTop = () => {
