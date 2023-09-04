@@ -62,7 +62,16 @@ function Beers() {
 			return filterBeer
 				.sort((a, b) => a.name.localeCompare(b.name))
 				.map((beer) => {
-					return <BeerSingle key={beer.id} beer={beer} />;
+					return (
+						<BeerSingle
+							key={beer.id}
+							id={beer.id}
+							name={beer.name}
+							description={beer.description}
+							image_url={beer.image_url}
+							abv={beer.abv}
+						/>
+					);
 				});
 		}
 
@@ -71,7 +80,16 @@ function Beers() {
 				return a.abv - b.abv;
 			})
 			.map((beer) => {
-				return <BeerSingle key={beer.id} beer={beer} />;
+				return (
+					<BeerSingle
+						key={beer.id}
+						id={beer.id}
+						name={beer.name}
+						description={beer.description}
+						image_url={beer.image_url}
+						abv={beer.abv}
+					/>
+				);
 			});
 	};
 
@@ -153,7 +171,11 @@ function Beers() {
 										return (
 											<BeerSingle
 												key={beer.id}
-												beer={beer}
+												id={beer.id}
+												name={beer.name}
+												description={beer.description}
+												image_url={beer.image_url}
+												abv={beer.abv}
 											/>
 										);
 								  })}
