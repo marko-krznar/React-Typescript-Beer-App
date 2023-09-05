@@ -9,9 +9,13 @@ export interface singleBeerProps {
 	abv: number;
 }
 
-export default function BeerSingle(props: singleBeerProps) {
-	const { id, name, description, image_url, abv } = props;
-
+export default function BeerSingle({
+	id,
+	name,
+	description,
+	image_url,
+	abv,
+}: singleBeerProps) {
 	return (
 		<div className="single-item">
 			<span className="block--abv">{abv}%</span>
