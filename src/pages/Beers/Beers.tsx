@@ -116,74 +116,92 @@ function Beers() {
 	return (
 		<>
 			<div className="block--container pg-beers">
-				<div className="block--filter-sort d-flex">
-					<div className="block--filter-item">
-						<label htmlFor="searchTerm" className="text">
-							Search by name
-						</label>
-						<input
-							required
-							type="text"
-							value={term}
-							onChange={(e) => setTerm(e.target.value)}
-							name="searchTerm"
-						/>
+				{beers.length === 0 && errorMsg && (
+					<div className="error-info-wrapper">
+						<span className="error-info">
+							PunkAPI is shutting down on May 1st 2024
+						</span>
 					</div>
-					<div className="block--filter-item">
-						<label htmlFor="sort">Sort</label>
-						<select
-							name="sort"
-							id="sort"
-							value={sortType}
-							onChange={(e) => setSortType(e.target.value)}
-						>
-							<option value="normal" defaultChecked>
-								...
-							</option>
-							<option value="name">Sort by name</option>
-							<option value="abv">Sort by % alcohol</option>
-						</select>
-					</div>
-					<div className="block--filter-item">
-						<label>Alcohol content</label>
-						<input
-							type="range"
-							value={alcoholContent}
-							onChange={(e) => setAlcoholContent(e.target.value)}
-							id="alcoholPercentage"
-							name="vol"
-							min="0"
-							max="100"
-						/>
-						<span>{alcoholContent}%</span>
-					</div>
-				</div>
-
-				<div className="block--prod-list">
-					{loading === true && "Loading"}
-					{filterBeer.length === 0 && loading === false ? (
-						`There are no beers with filters you provided`
-					) : (
-						<>
-							{sortType === "name" || sortType === "abv"
-								? sortedBeers()
-								: filterBeer.map((beer) => {
-										return (
-											<BeerSingle
-												key={beer.id}
-												id={beer.id}
-												name={beer.name}
-												description={beer.description}
-												image_url={beer.image_url}
-												abv={beer.abv}
-											/>
-										);
-								  })}
-						</>
-					)}
-
-					{beers.length === 0 && errorMsg}
-				</div>
+				)}
+				{beers.length > 0 && (
+					<>
+						<div className="block--filter-sort d-flex">
+							<div className="block--filter-item">
+								<label htmlFor="searchTerm" className="text">
+									Search by name
+								</label>
+								<input
+									required
+									type="text"
+									value={term}
+									onChange={(e) => setTerm(e.target.value)}
+									name="searchTerm"
+								/>
+							</div>
+							<div className="block--filter-item">
+								<label htmlFor="sort">Sort</label>
+								<select
+									name="sort"
+									id="sort"
+									value={sortType}
+									onChange={(e) =>
+										setSortType(e.target.value)
+									}
+								>
+									<option value="normal" defaultChecked>
+										...
+									</option>
+									<option value="name">Sort by name</option>
+									<option value="abv">
+										Sort by % alcohol
+									</option>
+								</select>
+							</div>
+							<div className="block--filter-item">
+								<label>Alcohol content</label>
+								<input
+									type="range"
+									value={alcoholContent}
+									onChange={(e) =>
+										setAlcoholContent(e.target.value)
+									}
+									id="alcoholPercentage"
+									name="vol"
+									min="0"
+									max="100"
+								/>
+								<span>{alcoholContent}%</span>
+							</div>
+						</div>
+						<div className="block--prod-list">
+							{loading === true && "Loading"}
+							{filterBeer.length === 0 && loading === false ? (
+								`There are no beers with filters you provided`
+							) : (
+								<>
+									{sortType === "name" || sortType === "abv"
+										? sortedBeers()
+										: filterBeer.map((beer) => {
+												return (
+													<BeerSingle
+														key={beer.id}
+														id={beer.id}
+														name={beer.name}
+														description={
+															beer.description
+														}
+														image_url={
+															beer.image_url
+														}
+														abv={beer.abv}
+													/>
+												);
+										  })}
+								</>
+							)}
+						</div>
+					</>
+				)}
 			</div>
 			{showButton && (
 				<button className="btn scroll-to-top-btn" onClick={scrollToTop}>
