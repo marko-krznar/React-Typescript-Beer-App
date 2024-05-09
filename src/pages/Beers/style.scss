@@ -59,6 +59,13 @@ select {
 	min-width: 12.5rem;
 }
 
+.error-info-wrapper {
+	background: $dark-red;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	font-size: 1.25rem;
+}
+
 @media (max-width: $tablet) {
 	.block--prod-list {
 		grid-template-columns: repeat(2, 1fr);
